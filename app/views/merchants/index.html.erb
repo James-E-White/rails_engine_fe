@@ -1,0 +1,14 @@
+ <center><header>
+  <pre>Merchants</pre></header>
+  </center> 
+  <% @merchants.each do |merchant| %>
+     <body>
+         <style>
+        p {
+            margin-left: 100px;
+        }
+    </style>
+     <pre><p> <%= link_to "#{merchant.name}", "/merchants/#{merchant.id}" %> </pre></p>
+     </body>
+    
+<% end %>
