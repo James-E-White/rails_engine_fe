@@ -10,9 +10,15 @@ class MerchantFacade
     end
   end
 
-  def self.get_merchant_items(merchant_id)
-    merchant_items = service.get_merchant_items(merchant_id)
-    merchant_items[:data].map { |item| MerchantItem.new(item) }
+  def self.find_merchant(id)
+    merchant = service.find_merchant(id)
+    Merchant.new(merchant[:data])
   end
 
+  def self.get_merchant_items(id)
+    merchant_items = service.get_merchant_items(id)
+    merchant_items[:data].map do |item| 
+        MerchantItem.new(item) 
+    end
+  end
 end
